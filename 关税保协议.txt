@@ -1,0 +1,29 @@
+给销售助理需要配置功能  
+
+--关税保资料编辑和提交
+/jf/chinapay/xdbZlsp/edit1           							销售助理
+/jf/chinapay/xdbZlsp/update										销售助理
+
+
+--线下汇款放到销售助理下
+/jf/chinapay/recharge/offlineRecharge2							销售助理
+/jf/chinapay/recharge/offlineRechargepay2						销售助理
+
+--新增功能
+/jf/chinapay/recharge/checkEnt   线下汇款校验企业				销售助理
+
+
+--协议补录
+/jf/chinapay/xdbZlsp/xieyibuluList  协议补录列表         		销售助理         
+/jf/chinapay/xdbZlsp/xieyibuluView	协议补录界面				销售助理
+/jf/chinapay/xdbZlsp/xieyibuluSubmit	协议补录提交			销售助理
+/jf/chinapay/xdbZlsp/xieyispview	协议审批/查看界面			销售助理|大区副总监
+/jf/chinapay/xdbZlsp/xieyisp	协议审批						大区副总监
+
+/jf/chinapay/xdbZlsp/xydsh 协议待审核界面      					大区副总监
+/jf/chinapay/xdbZlsp/xyysh 协议已审核界面						大区副总监
+
+alter table ecu_xdb_zlsp add column file_url14 varchar(255) default null comment "关税保协议路径";
+alter table ecu_xdb_zlsp add column file_name14 varchar(255) default null comment "关税保协议名称";
+alter table ecu_xdb_zlsp add column xieyi_reason varchar(255) default null comment "协议审批失败原因";
+alter table ecu_xdb_zlsp add column xieyi_state int(1) default null comment "协议状态（0-待审批；1-审批通过；2-审批不通过）";
